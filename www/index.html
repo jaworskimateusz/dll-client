@@ -1,30 +1,67 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html>
-    <head> 
-        <meta charset="utf-8"> 
-        <title>DLL</title>
-        <link rel="stylesheet" type="text/css" href="css/style.css">
-        <link rel="stylesheet" type="text/css" href="css/reset.css">
-    </head>
-    <body class="home"> 
-        <article class="textLeft" id="main">
-            <img class="logo" src="images/nodejs-logo.png">
-            <h1>Client app for running DLL files</h1>
-            <p>Enter file name and then click "Submit"</p>
+
+<head>
+    <meta charset="utf-8">
+    <title>DLL</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body class="home">
+    <article class="textLeft" id="main">
+        <img class="logo" src="images/nodejs-logo.png">
+        <img class="logo" src="images/cpp-logo.png">
+        <img class="logo" src="images/bootstrap-logo.png">
+        <h2>Client app for running DLL files</h2>
+        <p>Type your name and then click "Submit" or press "Enter"</p>
+        <div>
+            <form method="POST" id="nameForm">
+                <input class="form-control" type="text" name="name" placeholder="Type name"><br>
+                <button class="btn btn-secondary" id="submitButton">Submit</button>
+                <img class="ajaxLoader" src="images/ajax-loader.gif">
+            </form>
+        </div>
+        <section id="post-results-container">
+            <h2>Avaiable DLL's</h2>
+            <ul class="data"></ul>
+            <p>Let's test it!</p>
+            <hr>
             <div>
-                <form method="POST" id="testForm">
-                  <label>File name:</label>
-                  <input type="text" name="fileName"><br>
-                  <button type="submit" id="submitButton">Submit</button><img class="ajaxLoader" src="images/ajax-loader.gif">
+                <h3>#1 Get text file content</h3>
+                <form method="GET" id="fileForm">
+                    <input class="form-control" type="text" name="fileName" placeholder="Type file name (ex. file.txt)"><br>
+                    <input class="btn btn-secondary" type="button" id="contentSubmitButton" value="Get Content">
+                    <img class="ajaxLoader" src="images/ajax-loader.gif">
+                </form>
+                <ul class="text-file-content"></ul>
+            </div>
+            <hr>
+            <div>
+                <h3>#2 Open text file in windows editor</h3>
+                <form method="GET" id="editorFileForm">
+                    <input class="form-control" type="text" name="fileName" placeholder="Type file name (ex file.txt)"><br>
+                    <input class="btn btn-secondary" type="button" id="editorSubmitButton" value="Open file">
+                    <img class="ajaxLoader" src="images/ajax-loader.gif">
                 </form>
             </div>
-            <section id="post-results-container">
-              <h2>POST DATA</h2>
-              <p>Here is the data which DLL returned:</p>
-              <ul class="data"></ul>
-            </section>
-        </article>
-      <script type="text/javascript" src="js/jquery-2.2.4.min.js"></script>
-      <script type="text/javascript" src="js/form-handler.js"></script>
-    </body> 
+            <hr>
+            <div>
+                <h3>#3 Make mathematic operations</h3>
+                <form method="GET" id="mathematicForm">
+                    <input class="form-control floatNumber" type="number" name="firstNumber" placeholder="Type first number">
+                    <input class="form-control floatNumber" type="number" name="secondNumber" placeholder="Type second number"><br>
+                    <input class="btn btn-secondary" id="mathematicSubmitButton" type="button" value="Calculate">
+                    <img class="ajaxLoader" src="images/ajax-loader.gif">
+                </form>
+            </div>
+        </section>
+    </article>
+    <script type="text/javascript" src="js/jquery-2.2.4.min.js"></script>
+    <script type="text/javascript" src="js/form-handler.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+
 </html>

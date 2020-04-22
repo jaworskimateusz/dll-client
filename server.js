@@ -1,24 +1,22 @@
 //require the express nodejs module
 var express = require('express'),
-	//set an instance of exress
-	app = express(),
-	//require the body-parser nodejs module
-	bodyParser = require('body-parser'),
-	//require the path nodejs module
-	path = require("path");
+    //set an instance of exress
+    app = express(),
+    //require the body-parser nodejs module
+    bodyParser = require('body-parser'),
+    //require the path nodejs module
+    path = require("path");
 //support parsing of application/json type post data
 app.use(bodyParser.json());
 //support parsing of application/x-www-form-urlencoded post data
-app.use(bodyParser.urlencoded({ extended: true })); 
+app.use(bodyParser.urlencoded({ extended: true }));
 //tell express that www is the root of our public web folder
 app.use(express.static(path.join(__dirname, 'www')));
 
-// Import dependencies
-// const ffi = require("@saleae/ffi");
 const ffi = require("ffi-napi");
 
 // Convert JSString to CString
-function TEXT(text) {
+function toCString(text) {
     return Buffer.from(`${text}\0`, "ucs2");
 }
 
@@ -33,33 +31,40 @@ const user32 = new ffi.Library("user32", {
 });
 
 //tell express what to do when the /form route is requested
-app.post('/form',(req, res) => {
-	res.setHeader('Content-Type', 'application/json');
+app.post('/form', (req, res) => {
+    res.setHeader('Content-Type', 'application/json');
 
-	//mimic a slow network connection
-	setTimeout(() => {
-		res.send(JSON.stringify({
-			fileName: req.body.fileName || null
-		}));
-	}, 1000)
+    // Call the message box function #0 DLL
+    const isAccepted = user32.MessageBoxW(
+        0, toCString("Hello " + req.body.name + ". Please test DLL's"), toCString("C++ Window"), 1
+    );
 
-	// Call the message box function
-	const OK_or_Cancel = user32.MessageBoxW(
-		0, TEXT("Hello from Node.js!"), TEXT(req.body.fileName), 1
-	);
+    // Set the cursor position
+    user32.SetCursorPos(0, 0);
 
-	// Show the output of the message box
-	console.log(OK_or_Cancel);
+    if (isAccepted == 1)
+    //mimic a slow network connection only for visual effect
+        setTimeout(() => {
+        res.send(JSON.stringify({
+            name: req.body.name || null
+        }));
+    }, 1000)
 
-	//debugging output for the terminal
-	console.log('you posted: File Name: ' + req.body.fileName);
+});
 
-	// Set the cursor position
-	user32.SetCursorPos(0, 0);
+//get text file content
+app.get('/text-content', (req, res) => {
+    res.setHeader('Content-Type', 'application/json');
+
+});
+
+//open file in text editor
+app.get('/text-content', (req, res) => {
+    res.setHeader('Content-Type', 'application/json');
 
 });
 
 //wait for a connection
-app.listen(3000, ()=> {
-  console.log('Server is running. Point your browser to: http://localhost:3000');
+app.listen(3000, () => {
+    console.log('Server is running. Point your browser to: http://localhost:3000');
 });
