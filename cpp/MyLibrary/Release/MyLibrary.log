@@ -1,0 +1,10 @@
+﻿  pch.cpp
+  dllmain.cpp
+  MyLibrary.cpp
+     Trwa tworzenie biblioteki C:\Users\mateuszjaworski\Desktop\projects\dll-client\cpp\MyLibrary\Release\MyLibrary.lib i obiektu C:\Users\mateuszjaworski\Desktop\projects\dll-client\cpp\MyLibrary\Release\MyLibrary.exp
+  Trwa generowanie kodu
+  Zakończono generowanie kodu
+  2 of 2 functions (100.0%) were compiled.
+    1 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  MyLibrary.vcxproj -> C:\Users\mateuszjaworski\Desktop\projects\dll-client\cpp\MyLibrary\Release\MyLibrary.dll

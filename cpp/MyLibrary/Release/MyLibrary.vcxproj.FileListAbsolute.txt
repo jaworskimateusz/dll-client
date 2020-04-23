@@ -1,0 +1,2 @@
+C:\Users\mateuszjaworski\Desktop\cpp\MyLibrary\Release\MyLibrary.dll
+C:\Users\mateuszjaworski\Desktop\projects\dll-client\cpp\MyLibrary\Release\MyLibrary.dll

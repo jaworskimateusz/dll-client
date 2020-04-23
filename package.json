@@ -3,7 +3,6 @@
         "body-parser": "^1.15.2",
         "express": "^4.14.0",
         "ffi-napi": "^2.4.7",
-        "node-gyp": "^6.1.0",
         "ref-napi": "^1.4.3"
     },
     "scripts": {
