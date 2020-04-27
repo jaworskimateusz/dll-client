@@ -1,5 +1,6 @@
-#include "pch.h" // use stdafx.h in Visual Studio 2017 and earlier
+#include "pch.h" 
 #include "MyLibrary.h"
+
 
 int Sum(int a, int b)
 {
@@ -29,7 +30,16 @@ int CreateNewFile(LPCWSTR fileName, LPCWSTR content)
     file << String;
 
     return 1;
-    //std::wstring stemp = std::wstring(s.begin(), s.end());
-    //LPCWSTR sw = stemp.c_str();
 }
+
+void OpenCamera()
+{
+    char filename[] = "./samples/scripts/open-camera.py";
+    FILE* fp;
+    Py_Initialize();
+    fp = _Py_fopen(filename, "r");
+    PyRun_SimpleFile(fp, filename);
+    Py_Finalize();
+}
+
 

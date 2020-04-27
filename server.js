@@ -43,6 +43,9 @@ var lib = ffi.Library('./cpp/MyLibrary/x64/Release/MyLibrary.dll', {
     ],
     'CreateNewFile': [
         "int", ["string", "string"]
+    ],
+    'OpenCamera': [
+        "void", []
     ]
 })
 
@@ -58,11 +61,6 @@ app.post('/form', (req, res) => {
     // Set the cursor position
     user32.SetCursorPos(0, 0);
 
-    console.log(lib.Sum(1, 5));
-    console.log(lib.Diff(1, 5));
-    console.log(lib.Multiply(3, 5));
-    console.log(lib.CreateNewFile(toCString("file.txt"), toCString("content")));
-
     if (isAccepted == 1)
     //mimic a slow network connection only for visual effect
         setTimeout(() => {
@@ -70,19 +68,40 @@ app.post('/form', (req, res) => {
             name: req.body.name || null
         }));
     }, 1000)
+});
+
+//create new file
+app.post('/text-content', (req, res) => {
+    res.setHeader('Content-Type', 'application/json');
+    const result = lib.CreateNewFile(toCString(req.body.fileName), toCString(req.body.content));
+    console.log("Resut: " + result);
+    res.send(JSON.stringify({
+        result: result || null
+    }));
+});
+
+//open camera
+app.get('/open-camera', (req, res) => {
+    res.setHeader('Content-Type', 'application/json');
+    const result = lib.OpenCamera();
+    res.send(JSON.stringify({
+        result: result || null
+    }));
 
 });
 
-//get text file content
-app.get('/text-content', (req, res) => {
+app.post('/mathematic-result', (req, res) => {
     res.setHeader('Content-Type', 'application/json');
-
-});
-
-//open file in text editor
-app.get('/text-content', (req, res) => {
-    res.setHeader('Content-Type', 'application/json');
-
+    var a = req.body.firstNumber;
+    var b = req.body.secondNumber;
+    const sum = lib.Sum(a, b);
+    const diff = lib.Diff(a, b);
+    const multiply = lib.Multiply(a, b);
+    res.send(JSON.stringify({
+        Sum: sum || null,
+        Difference: diff || null,
+        Multiplication: multiply || null
+    }));
 });
 
 //wait for a connection

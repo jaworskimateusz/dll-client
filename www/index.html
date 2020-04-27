@@ -29,32 +29,33 @@
             <p>Let's test it!</p>
             <hr>
             <div>
-                <h3>#1 Get text file content</h3>
-                <form method="GET" id="fileForm">
+                <h3>#1 Create new file with content</h3>
+                <form method="POST" id="fileForm">
                     <input class="form-control" type="text" name="fileName" placeholder="Type file name (ex. file.txt)"><br>
-                    <input class="btn btn-secondary" type="button" id="contentSubmitButton" value="Get Content">
-                    <img class="ajaxLoader" src="images/ajax-loader.gif">
+                    <input class="form-control" type="text" name="content" placeholder="Type file content"><br>
+                    <input class="btn btn-secondary" type="button" id="contentSubmitButton" value="Create File">
                 </form>
                 <ul class="text-file-content"></ul>
             </div>
             <hr>
             <div>
-                <h3>#2 Open text file in windows editor</h3>
-                <form method="GET" id="editorFileForm">
-                    <input class="form-control" type="text" name="fileName" placeholder="Type file name (ex file.txt)"><br>
-                    <input class="btn btn-secondary" type="button" id="editorSubmitButton" value="Open file">
+                <h3>#2 Open camera</h3>
+                <h5>Press 'q' to close window</h5>
+                <form method="GET" id="cameraForm">
+                    <input class="btn btn-secondary" type="button" id="openCameraSubmitButton" value="Open camera">
                     <img class="ajaxLoader" src="images/ajax-loader.gif">
                 </form>
+                <ul class="camera-state"></ul>
             </div>
             <hr>
             <div>
                 <h3>#3 Make mathematic operations</h3>
-                <form method="GET" id="mathematicForm">
+                <form method="POST" id="mathematicForm">
                     <input class="form-control floatNumber" type="number" name="firstNumber" placeholder="Type first number">
                     <input class="form-control floatNumber" type="number" name="secondNumber" placeholder="Type second number"><br>
                     <input class="btn btn-secondary" id="mathematicSubmitButton" type="button" value="Calculate">
-                    <img class="ajaxLoader" src="images/ajax-loader.gif">
                 </form>
+                <ul class="mathematic-result"></ul>
             </div>
         </section>
     </article>

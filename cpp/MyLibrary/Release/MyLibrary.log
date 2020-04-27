@@ -1,10 +1,10 @@
-﻿  pch.cpp
-  dllmain.cpp
-  MyLibrary.cpp
-     Trwa tworzenie biblioteki C:\Users\mateuszjaworski\Desktop\projects\dll-client\cpp\MyLibrary\Release\MyLibrary.lib i obiektu C:\Users\mateuszjaworski\Desktop\projects\dll-client\cpp\MyLibrary\Release\MyLibrary.exp
-  Trwa generowanie kodu
-  Zakończono generowanie kodu
-  2 of 2 functions (100.0%) were compiled.
-    1 functions were new in current compilation
+﻿  MyLibrary.cc
+C:\Users\mateuszjaworski\Desktop\projects\dll-client\cpp\MyLibrary\MyLibrary.cc(23,30): warning C4244: 'initializing': conversion from 'long64' to 'unsigned int', possible loss of data
+C:\Users\mateuszjaworski\Desktop\projects\dll-client\cpp\MyLibrary\MyLibrary.cc(26,31): warning C4244: '=': conversion from 'const WCHAR' to 'char', possible loss of data
+     Creating library C:\Users\mateuszjaworski\Desktop\projects\dll-client\cpp\MyLibrary\Release\MyLibrary.lib and object C:\Users\mateuszjaworski\Desktop\projects\dll-client\cpp\MyLibrary\Release\MyLibrary.exp
+  Generating code
+  Finished generating code
+  291 of 292 functions (99.7%) were compiled, the rest were copied from previous compilation.
+    290 functions were new in current compilation
     0 functions had inline decision re-evaluated but remain unchanged
   MyLibrary.vcxproj -> C:\Users\mateuszjaworski\Desktop\projects\dll-client\cpp\MyLibrary\Release\MyLibrary.dll

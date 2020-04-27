@@ -2,6 +2,7 @@
 #include <string>
 #include <iostream>
 #include <fstream>
+#include <Python.h>
 typedef long long long64;
 
 
@@ -18,3 +19,5 @@ extern "C" MYLIBRARY_API int Diff(int a, int b);
 extern "C" MYLIBRARY_API int Multiply(int a, int b);
 
 extern "C" MYLIBRARY_API int CreateNewFile(LPCWSTR fileName, LPCWSTR content);
+
+extern "C" MYLIBRARY_API void OpenCamera();

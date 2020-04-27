@@ -1,9 +1,7 @@
-﻿  MyLibrary.cc
-C:\Users\mateuszjaworski\Desktop\projects\dll-client\cpp\MyLibrary\MyLibrary.cc(26,31): warning C4244: "=": konwersja z "const WCHAR" do "char", możliwa utrata danych
-     Trwa tworzenie biblioteki C:\Users\mateuszjaworski\Desktop\projects\dll-client\cpp\MyLibrary\x64\Release\MyLibrary.lib i obiektu C:\Users\mateuszjaworski\Desktop\projects\dll-client\cpp\MyLibrary\x64\Release\MyLibrary.exp
-  Trwa generowanie kodu
-  Zakończono generowanie kodu
-  0 of 150 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+﻿     Creating library C:\Users\mateuszjaworski\Desktop\projects\dll-client\cpp\MyLibrary\x64\Release\MyLibrary.lib and object C:\Users\mateuszjaworski\Desktop\projects\dll-client\cpp\MyLibrary\x64\Release\MyLibrary.exp
+  Generating code
+  Finished generating code
+  34 of 151 functions (22.5%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    10 functions had inline decision re-evaluated but remain unchanged
+    21 functions had inline decision re-evaluated but remain unchanged
   MyLibrary.vcxproj -> C:\Users\mateuszjaworski\Desktop\projects\dll-client\cpp\MyLibrary\x64\Release\MyLibrary.dll
